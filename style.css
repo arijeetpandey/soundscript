@@ -72,25 +72,22 @@ body {
 
 h1 {
     color: white;
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
-}
-
-.subtitle {
-    color: #666;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
 }
 
 #transcript {
     width: 100%;
     min-height: 150px;
     padding: 1rem;
-    border: 2px solid #e0e0e0;
     border-radius: 10px;
-    font-size: 1rem;
-    resize: vertical;
     margin-bottom: 1.5rem;
-    font-family: inherit;
+    resize: vertical;
+    border: none;
+    background: white;
+    outline: none;
+    letter-spacing: 2px;
+    word-spacing: 4px;
 }
 
 .controls {
