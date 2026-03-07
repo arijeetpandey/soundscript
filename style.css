@@ -1,73 +1,92 @@
+:root {
+    --start-color: #B1B2FF;
+    --stop-color: #F43F5E;
+    --pause-color: #F59E0B;
+    --clear-color: #64748B;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     color: #f0f0f0;
 }
 
 .libre-baskerville-myfont {
-  font-family: "Libre Baskerville", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+    font-family: "Libre Baskerville", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
-
-body { 
+body {
     min-height: 100vh;
     background: #0b0d15;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url("background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    image-rendering: -webkit-optimize-contrast;
     color: #a2a5b3;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.card{
-  margin: 0 auto;
-  padding: 2em;
-  width: 400px;
-  background: #1c1f2b;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
+.card {
+    margin: 0 auto;
+    padding: 2em;
+    width: 400px;
+    background: #1c1f2b;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
 }
 
-
-@property --angle{
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
-.card::after, .card::before{
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  z-index: -1;
-  padding: 3px;
-  border-radius: 10px;
-  animation: 3s spin linear infinite;
+.card::after,
+.card::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),
+            #ff4545,
+            #00ff99,
+            #006aff,
+            #ff0095,
+            #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
 }
-.card::before{
-  filter: blur(1.5rem);
-  opacity: 0.5;
+
+.card::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
-@keyframes spin{
-  from{
-    --angle: 0deg;
-  }
-  to{
-    --angle: 360deg;
-  }
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
 }
 
 h1 {
@@ -90,54 +109,6 @@ h1 {
     word-spacing: 4px;
 }
 
-.controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-button {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#startBtn {
-    background: #4caf50;
-    color: white;
-}
-
-#startBtn.listening {
-    background: #ff9800;
-    animation: pulse 1.5s infinite;
-}
-
-#stopBtn {
-    background: #f44336;
-    color: white;
-}
-
-#clearBtn {
-    background: #2196f3;
-    color: white;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
 .status {
     margin-top: 1rem;
     padding: 0.5rem;
@@ -151,28 +122,144 @@ button:disabled {
     border: 1px solid #ffeaa7;
 }
 
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(255, 152, 0, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0);
-    }
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    transform: rotate(45deg);
 }
 
-@media (max-width: 480px) {
-    .controls {
-        flex-direction: column;
-        align-items: center;
-    }
+.up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
 
-    button {
-        width: 100%;
-        max-width: 250px;
-    }
+.down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.card1 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.start {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    /* fill: #cc39a4; */
+    fill: var(--start-color);
+}
+
+.card2 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.clear {
+    margin-top: 1.5em;
+    margin-left: -0.9em;
+    fill: var(--clear-color);
+}
+
+.card3 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.pause {
+    margin-top: -0.6em;
+    margin-left: 1.2em;
+    fill: var(--pause-color);
+}
+
+.card4 {
+    width: 90px;
+    height: 90px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.stop {
+    margin-top: -0.9em;
+    margin-left: -1.2em;
+    fill: var(--stop-color);
+}
+
+.card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--start-color);
+}
+
+.card1:hover .start {
+    fill: white;
+}
+
+.card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--clear-color);
+}
+
+.card2:hover .clear {
+    fill: white;
+}
+
+.card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--pause-color);
+}
+
+.card3:hover .pause {
+    fill: white;
+}
+
+.card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: var(--stop-color);
+}
+
+.card4:hover .stop {
+    fill: white;
+}
+
+.rotate-n45 {
+    transform: rotate(-45deg);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
 }
