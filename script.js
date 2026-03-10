@@ -2,6 +2,7 @@ const transcript = document.getElementById("transcript");
 const startBtn = document.getElementById("startBtn");
 const stopBtn = document.getElementById("stopBtn");
 const clearBtn = document.getElementById("clearBtn");
+const copyBtn = document.getElementById("copyBtn")
 const status = document.getElementById("status");
 
 let recognition;
@@ -57,7 +58,7 @@ if (
 
     recognition.onend = function () {
         isListening = false;
-        startBtn.textContent = "🎤 Start Listening";
+        startBtn.textContent = "🎤 ";
         startBtn.classList.remove("listening");
         stopBtn.disabled = true;
         status.classList.remove("listening");
@@ -70,7 +71,7 @@ if (
         status.textContent = `Error: ${event.error}`;
         isListening = false;
         startBtn.classList.remove("listening");
-        startBtn.textContent = "🎤 Start Listening";
+        startBtn.textContent = "🎤";
         stopBtn.disabled = true;
     };
 
@@ -90,6 +91,11 @@ if (
     clearBtn.addEventListener("click", function () {
         transcript.value = "";
         status.textContent = "";
+    });
+    copyBtn.addEventListener("click", function () {
+        navigator.clipboard.writeText(transcript.value).then(() => {
+        alert("Copied!" );
+    });
     });
 
     // Allow textarea editing after recognition stops
