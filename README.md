@@ -11,7 +11,7 @@ A lightweight, browser-based speech recognition tool that converts live audio in
 
 ## 🚀 Demo
 
-
+You can check it out [here](https://arijeetpandey.github.io/soundscript/)
 
 ## 🛠️ Built With
 
