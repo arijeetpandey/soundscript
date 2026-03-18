@@ -49,20 +49,16 @@ if (
     // Handle listening status
     recognition.onstart = function () {
         isListening = true;
-        // startBtn.textContent = "🎤 Listening...";
         startBtn.classList.add("listening");
         stopBtn.disabled = false;
-        // status.textContent = "Listening... Speak now!";
         status.classList.add("listening");
     };
 
     recognition.onend = function () {
         isListening = false;
-        // startBtn.textContent = "🎤 ";
         startBtn.classList.remove("listening");
         stopBtn.disabled = true;
         status.classList.remove("listening");
-        // status.textContent = "";
     };
 
     // Handle errors
@@ -93,6 +89,10 @@ if (
         status.textContent = "";
     });
     copyBtn.addEventListener("click", function () {
+        if (transcript.value === "") {
+            alert("Nothing to copy");
+            return;
+        }
         navigator.clipboard.writeText(transcript.value).then(() => {
         alert("Copied!" );
     });

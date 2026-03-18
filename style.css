@@ -41,11 +41,18 @@ body {
     margin: 0 auto;
     padding: 2em;
     width: 400px;
-    background: linear-gradient(to right, #040404, #000000, #656565);
-    ;
+    /* background: linear-gradient(to right, #040404, #000000, #656565); */
     text-align: center;
     border-radius: 10px;
     position: relative;
+    /* width: 700px;
+    height: 400px; */
+    /* padding: 10px;
+    border-radius: 20px; */
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.4);
+    /* text-align: center;
+    font-weight: 800; */
 }
 
 @property --angle {
@@ -54,7 +61,7 @@ body {
     inherits: false;
 }
 
-.card::after,
+/* .card::after,
 .card::before {
     content: "";
     position: absolute;
@@ -78,7 +85,7 @@ body {
 .card::before {
     filter: blur(1.5rem);
     opacity: 0.5;
-}
+} */
 
 @keyframes spin {
     from {
